@@ -38,22 +38,10 @@ class Cell:
         count = 0
         for z in Cell.cells:
             if z.alive:
-                if z.x == (self.x + 1) and z.y == self.y:
+                if abs(self.x - z.x) < 2 and abs(self.y - z.y) < 2:
                     count += 1
-                elif z.x == (self.x - 1) and z.y == self.y:
-                    count += 1
-                elif z.x == self.x and z.y == self.y + 1:
-                    count += 1
-                elif z.x == self.x and z.y == self.y - 1:
-                    count += 1
-                elif z.x == (self.x + 1) and z.y == self.y + 1:
-                    count += 1
-                elif z.x == self.x - 1 and z.y == self.y + 1:
-                    count += 1
-                elif z.x == self.x + 1 and z.y == self.y - 1:
-                    count += 1
-                elif z.x == self.x - 1 and z.y == self.y - 1:
-                    count += 1
+        if self.alive:
+            count -= 1
         return count
 
 
